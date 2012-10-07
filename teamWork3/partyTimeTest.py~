@@ -1,0 +1,10 @@
+import unittest
+import partyTime
+
+class test_gene_sets(unittest.TestCase):
+    def test_fun(self):
+        relation_list = partyTime.random_relation(100)
+        self.assertEqual(100, len(partyTime.gene_sets(relation_list)))
+
+if __name__ == '__main__':
+    unittest.main()

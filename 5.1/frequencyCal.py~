@@ -1,0 +1,18 @@
+def frequency(lis):
+    '''This function counts the frequencies of different entries.'''
+    dic = {}
+    for i in lis:
+        count = dic.get(i, 0)
+        count += 1
+        dic[i] = count
+    return dic
+
+def dis_fre(lis):
+    '''This function prints out the counting result in a visual fasion.'''
+    dic = frequency(lis)
+    for i in sorted(dic):
+        print i, '*' * dic[i]
+
+if __name__ == '__main__':
+    name_list = ['Jobs', 'Gates', 'Jobs', 'Page', 'Zakerburg', 'Jobs', 'Page']
+    dis_fre(name_list)
