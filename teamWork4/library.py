@@ -138,9 +138,10 @@ class Library(object):
                 else:
                     pass
             if over_due:
-                over_due_string = patron + ':\n'
+                over_due_string += (patron + ':\n')
                 for book in over_due_books:
-                    over_due_string += (book.get_title() + '\n')
+                    over_due_string += (str(book) + '\n')
+            over_due = False
         if over_due_string == '':
             over_due_string = 'No books are over due.'
         else:
@@ -339,6 +340,10 @@ print l.issue_card('Charles')
 print l.serve('Charles')
 print l.search('alice')
 print l.check_out(10009)
+print l.check_out(10050)
+print l.issue_card('Tim')
+print l.serve('Tim')
+print l.check_out(10035)
 print l.serve('Chao')
 print l.find_overdue_books()
 print l.check_in(1)
@@ -358,8 +363,22 @@ print l.open()
 print l.close()
 print l.find_all_overdue_books()
 print l.open()
-print l.serve('Chao')
+print l.serve('Tim')
 print l.find_overdue_books()
-print l.renew(10011)
+print l.renew(10035)
 print l.find_all_overdue_books()
 print l.find_overdue_books()
+l.find_all_overdue_books()
+l.issue_card('Tom')
+l.serve('Tom')
+l.check_out(10001, 10056)
+l.serve('Tom')
+l.find_all_overdue_books()
+l.close()
+l.open()
+l.close()
+l.open()
+l.serve('Tom')
+l.find_all_overdue_books()
+l.serve('Charles')
+l.find_overdue_books()
