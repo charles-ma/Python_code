@@ -123,7 +123,7 @@ class Library(object):
         else:
             self.calendar.advance()
             self.is_open = True
-        return sys.stdout.write('Today is day ' + str(self.calendar.get_date()) + '.\n')
+        print 'Today is day ' + str(self.calendar.get_date()) + '.\n'
             
     def find_all_overdue_books(self):
         '''Finds all the patrons with overdue books and the books as well.'''
@@ -146,7 +146,7 @@ class Library(object):
             over_due_string = 'No books are over due.'
         else:
             pass
-        return sys.stdout.write(over_due_string + '\n')
+        print over_due_string + '\n'
 
     def issue_card(self, name_of_patron):
         '''Issues a card to a person new to the library.'''
@@ -156,7 +156,7 @@ class Library(object):
             else:
                 self.patrons[name_of_patron] = Patron(name_of_patron, self)
                 self.patrons_books[name_of_patron] = set([])
-                return sys.stdout.write('Library card issued to ' + name_of_patron + '.\n')
+                print 'Library card issued to ' + name_of_patron + '.\n'
         else:
             raise Exception('The library is not open.')
 
@@ -170,9 +170,9 @@ class Library(object):
                 for i in range(0, len(books)):
                     self.current_patron_books[i] = books[i]
                     books_string += (str(i) + '.' + str(books[i]) + '\n')
-                return sys.stdout.write('Now serving ' + name_of_patron + '.' + '\n' +books_string + '\n')
+                print 'Now serving ' + name_of_patron + '.' + '\n' +books_string + '\n'
             else:
-                return sys.stdout.write(name_of_patron + ' does not have a library card.\n')
+                print name_of_patron + ' does not have a library card.\n'
         else:
             raise Exception('The library is not open.')
 
@@ -190,7 +190,7 @@ class Library(object):
                 if over_due_string == '':
                     return None
                 else:
-                    return sys.stdout.write(over_due_string + '\n')
+                    print over_due_string + '\n'
             else:
                 raise Exception('No patron is currently being served.')
             pass
@@ -216,7 +216,7 @@ class Library(object):
                         self.patrons_books[self.current_patron.get_name()] = book_set
                     else:
                         raise Exception('The patron does not have book ' + str(book_number) + '.')
-                return sys.stdout.write(self.current_patron.get_name() + ' has returned ' + str(book_amount) + ' books.\n')
+                print self.current_patron.get_name() + ' has returned ' + str(book_amount) + ' books.\n'
             else:
                 raise Exception('No patron is currently being served.')
         else:
@@ -253,9 +253,9 @@ class Library(object):
                     self.search_ids.append(book.get_id())
             else:
                 result_string = 'No books found.'
-            return sys.stdout.write(result_string + '\n')
+            print result_string + '\n'
         else:
-            return sys.stdout.write('Search string must contain at least four characters.\n') 
+            print 'Search string must contain at least four characters.\n'
 
     def check_out(self, *book_ids):
         '''Checks out some books.'''
@@ -282,7 +282,7 @@ class Library(object):
                                     book_amount += 1
                         else:
                             raise Exception('The library does not have book ' + str(book_id) + '.')
-                    return sys.stdout.write(str(book_amount) +' books have been checked out to ' + self.current_patron.get_name() + '.\n')
+                    print str(book_amount) +' books have been checked out to ' + self.current_patron.get_name() + '.\n'
             else:
                 raise Exception('No patron is currently being served.')
         else:
@@ -307,7 +307,7 @@ class Library(object):
                         raise Exception('The patron does not have book ' + str(book_id) + '.')
                     else:
                         pass
-                return sys.stdout.write(str(book_amount) + ' books have been renewed for ' + self.current_patron.get_name() + '.\n')
+                print str(book_amount) + ' books have been renewed for ' + self.current_patron.get_name() + '.\n'
             else:
                 raise Exception('No patron is currently being served.')
         else:
@@ -320,7 +320,7 @@ class Library(object):
             self.current_patron = None
             self.current_patron_books = {}#the dictionary of books of the current patron
             self.search_ids = []
-            return sys.stdout.write('Good night.\n')
+            print 'Good night.\n'
         else:
             raise Exception('The library is not open.')
 
