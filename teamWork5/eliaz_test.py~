@@ -1,0 +1,12 @@
+import unittest
+
+class eliza_test(inittest.TestCase):
+    def test_rule(self):
+        rule = Rule()
+        string = 'test string'
+        self.assertEqual(False, rule.can_apply())
+        self.assertEqual(string, rule.apply(string))
+        self.assertEqual(False, rule.is_final())
+
+if __name__ == '__main__':
+    unittest.main()
