@@ -1,0 +1,7 @@
+a = [0, 1, 2, 3, 4, 5]
+b = [3, 4, 5, 6, 7, 8]
+print filter(lambda x : x != 0, a)
+print filter(lambda x : x % 2 != 0, a)
+print reduce(lambda x, y : x + y, a)
+print map(lambda x, y : (x + y) % 2 != 0, a, b)
+print map(lambda x, y, z: (x + y) <= z, a, a, b)
