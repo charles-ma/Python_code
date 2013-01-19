@@ -1,6 +1,6 @@
 import random
 def TwoDRandWalk():
-    '''This program simulates the 2 dimensional random walk process.'''
+    '''This program simulates the 2 dimensional random walk process..'''
     times = [None]*11
     for i in range(0,11):
         times[i] = [0]*11 #cannot use [[0]*11]*11 to initialize times
